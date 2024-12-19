@@ -45,7 +45,7 @@ def process_emails(driver):
 if run_process and email and password:
     try:
         # Set up Selenium Edge WebDriver
-        driver = webdriver.Edge(executable_path=r'C:\path\to\msedgedriver.exe')
+        driver = webdriver.Edge(executable_path=r'C:\Users\thoma\Downloads\edgedriver_win64 (3)\msedgedriver.exe')
 
         # Load website
         driver.get('https://g-star.sharefile.eu/home/shared/fo6089f6-96d2-48bf-b790-90f1995aadca')
@@ -81,4 +81,6 @@ if run_process and email and password:
         st.error(f"An error occurred: {e}")
 
     finally:
-        driver.quit()
+        if driver:
+            driver.quit()
+            st.write("Driver closed successfully!")
